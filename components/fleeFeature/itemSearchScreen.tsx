@@ -60,7 +60,7 @@ const ItemSearchScreen: React.FC<ItemSearchScreenProps> = ({route}) => {
   // Memoize the entire FlatList component
   const memoizedFlatList = useMemo(() => {
     return (
-      <View style={{marginTop: 1, paddingBottom: 40}}>
+      <View style={{marginTop: 4, paddingBottom: 40}}>
         <FlatList
           contentContainerStyle={{paddingBottom: 16}}
           data={items}
