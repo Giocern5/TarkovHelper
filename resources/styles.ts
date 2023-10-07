@@ -3,11 +3,10 @@ import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 const deviceWidth = Dimensions.get('window').width;
 const dWidth = deviceWidth * 0.45; // 45% of the screen width
-const dHeight = dWidth * (16 / 9); // Maintain a 4:3 aspect ratio
-export const textColor = '#e5e2c2';
+const primaryColor = '#e5e2c2';
 const basicStyle = StyleSheet.create({
   text: {
-    color: textColor, // Set the text color
+    color: primaryColor, // Set the text color
     fontSize: 15, // Adjust the font size
     fontWeight: 'bold', // Set font weight to bold if desired
   },
@@ -22,7 +21,6 @@ export const Styles = StyleSheet.create({
     width: '100%',
     margin: 5,
     ...basicStyle.text,
-    //backgroundColor: 'blue',
   },
   searchBarButton: {
     alignSelf: 'flex-end',
@@ -82,7 +80,29 @@ export const Styles = StyleSheet.create({
     backgroundColor: Colors.darker,
   },
   statusBar: {
+    flex: 1,
     justifyContent: 'center',
+    alignItems: 'center',
+    color: primaryColor,
+  },
+
+  modalContainer: {
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+    height: '100%',
+    width: '100%',
+    marginLeft: 5,
+    marginRight: 5,
     alignSelf: 'center',
+  },
+  modalImage: {
+    alignSelf: 'center',
+    height: '35%',
+    width: '100%',
+    marginBottom: 5,
+    marginTop: 5,
+  },
+  modalItemText: {
+    ...basicStyle.text,
+    alignContent: 'flex-start',
   },
 });

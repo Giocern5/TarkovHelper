@@ -6,7 +6,7 @@ const strings: StringResources = {
   search: 'Search...',
   defaultSearch: 'ammo',
   itemSearch: 'Item Search',
-  // Add more key-value pairs for other strings
+  numOfQuests: (numQuests: number) => `Used in ${numQuests} quests`,
 };
 
 export default strings;

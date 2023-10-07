@@ -15,8 +15,23 @@ export const GET_ITEM = gql`
       id
       name
       shortName
-      baseImageLink
       iconLink
+      basePrice
+      inspectImageLink
+      sellFor {
+        price
+        currency
+        priceRUB
+        source
+      }
+      usedInTasks {
+        id
+        name
+      }
+      receivedFromTasks {
+        id
+        name
+      }
     }
   }
 `;

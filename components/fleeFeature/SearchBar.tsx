@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {TextInput, View, StyleSheet, Button} from 'react-native';
-import {Styles, textColor} from '../../resources/styles';
+import {Styles} from '../../resources/styles';
 import strings from '../../resources/strings';
 
 interface SearchBarProps {
@@ -22,7 +22,7 @@ const SearchBar: React.FC<SearchBarProps> = ({onSearch}) => {
         value={searchText}
         onChangeText={text => setSearchText(text)}
         onSubmitEditing={handleSearch}
-        placeholderTextColor={textColor}
+        placeholderTextColor={Styles.searchBarText.color}
       />
     </View>
   );
