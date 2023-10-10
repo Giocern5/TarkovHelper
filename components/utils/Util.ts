@@ -6,8 +6,7 @@ export const getBestVendor = (items: SellFor[]) => {
   }
 
   const bestVendor = items.reduce((max, sellFor) => {
-    // Check if the vendor name is "Flea Market" and exclude it
-    if (sellFor.vendor.name === 'Flea Market') {
+    if (sellFor.vendor.normalizedName === 'flea-market') {
       return max;
     }
 

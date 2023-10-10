@@ -18,6 +18,9 @@ export const GET_ITEM = gql`
       iconLink
       basePrice
       inspectImageLink
+      lastLowPrice
+      description
+      normalizedName
       sellFor {
         priceRUB
         vendor {

@@ -26,6 +26,18 @@ const ItemContext: React.FC<ItemContextProps> = ({onClose, selectedItem}) => {
     );
   };
 
+  const fleePriceText = () => {
+    return (
+      selectedItem.lastLowPrice > 0 && (
+        <Text style={Styles.modalItemText}>
+          {strings.estimatedFleePrice(
+            priceToString(selectedItem.lastLowPrice.toString()),
+          )}
+        </Text>
+      )
+    );
+  };
+
   const numOfQuestsText = () => {
     return (
       numQuests && (
@@ -37,6 +49,7 @@ const ItemContext: React.FC<ItemContextProps> = ({onClose, selectedItem}) => {
   };
   // last known flee price
   // how many quests the item appears in
+  // add descriptions
 
   return (
     <View style={Styles.modalContainer}>
@@ -47,11 +60,12 @@ const ItemContext: React.FC<ItemContextProps> = ({onClose, selectedItem}) => {
         resizeMode="contain"
       />
 
-      <Text style={Styles.itemText} numberOfLines={2}>
+      <Text style={Styles.modalItemText} numberOfLines={2}>
         {selectedItem.name}
       </Text>
       {numOfQuestsText()}
       {bestVendorText()}
+      {fleePriceText()}
     </View>
   );
 };

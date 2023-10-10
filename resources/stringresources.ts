@@ -4,4 +4,5 @@ export interface StringResources {
   itemSearch: string;
   bestVendorPrice: (name: string) => string;
   numOfQuests: (numQuests: number) => string;
+  estimatedFleePrice: (price: string) => string;
 }

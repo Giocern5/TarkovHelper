@@ -2,6 +2,8 @@ export interface Item {
   id: string;
   name: string;
   inspectImageLink: string;
+  lastLowPrice: number;
+  description: string;
   sellFor: SellFor[];
   usedInTasks: UsedInTasks[];
   receivedFromTasks: ReceivedFromTasks[];
@@ -23,4 +25,5 @@ export interface ReceivedFromTasks {
 
 export interface Vendor {
   name: string;
+  normalizedName: String;
 }
