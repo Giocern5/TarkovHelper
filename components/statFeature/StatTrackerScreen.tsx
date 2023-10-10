@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 import {RouteProp} from '@react-navigation/native';
-import RootStackParamList from '../../utils/RootStackParamList';
+import RootStackParamList from '../utils/RootStackParamList';
 
 type StatTrackerScreenRouteProp = RouteProp<RootStackParamList, 'StatTracker'>;
 

@@ -1,7 +1,6 @@
 export interface Item {
   id: string;
   name: string;
-  iconLink: string;
   inspectImageLink: string;
   sellFor: SellFor[];
   usedInTasks: UsedInTasks[];
@@ -9,9 +8,8 @@ export interface Item {
 }
 
 export interface SellFor {
-  price: string;
-  currency: string;
-  source: string;
+  priceRUB: string;
+  vendor: Vendor;
 }
 
 export interface UsedInTasks {
@@ -20,5 +18,9 @@ export interface UsedInTasks {
 }
 export interface ReceivedFromTasks {
   id: string;
+  name: string;
+}
+
+export interface Vendor {
   name: string;
 }

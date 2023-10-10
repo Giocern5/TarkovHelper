@@ -19,10 +19,10 @@ export const GET_ITEM = gql`
       basePrice
       inspectImageLink
       sellFor {
-        price
-        currency
         priceRUB
-        source
+        vendor {
+          name
+        }
       }
       usedInTasks {
         id

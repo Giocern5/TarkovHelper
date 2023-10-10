@@ -8,14 +8,14 @@ import {
   Modal,
 } from 'react-native';
 import {RouteProp} from '@react-navigation/native';
-import RootStackParamList from '../../utils/RootStackParamList';
+import RootStackParamList from '../utils/RootStackParamList';
 import {useQuery} from '@apollo/client';
-import {GET_ITEM} from '../../utils/gql/Query';
+import {GET_ITEM} from '../utils/gql/Query';
 import {Styles} from '../../resources/styles';
 import SearchBar from './SearchBar';
 import strings from '../../resources/strings';
-import ItemContext from '../ItemContext';
-import {Item} from '../../utils/Models';
+import ItemContext from './ItemContext';
+import {Item} from '../utils/ItemModel';
 
 type ItemSearchScreenRouteProp = RouteProp<RootStackParamList, 'ItemSearch'>;
 
@@ -35,13 +35,15 @@ const ItemSearchScreen: React.FC<ItemSearchScreenProps> = ({route}) => {
   useEffect(() => {
     if (!query) setQuery(strings.defaultSearch);
 
-    if (!loading && data) {
+    if (data) {
+      // go over again
+      // old items were appearing before being set,this prevents that bug
+      setItems([]);
       setItems(data.items);
     }
-  }, [loading, data, query]);
+  }, [data, query]);
 
   const handleSearch = (searchText: string) => {
-    setItems([]);
     setQuery(searchText);
   };
 
@@ -83,6 +85,8 @@ const ItemSearchScreen: React.FC<ItemSearchScreenProps> = ({route}) => {
           renderItem={({item}) => itemView(item)}
           keyExtractor={item => item.id}
           numColumns={2}
+          // check agin later
+          fadingEdgeLength={100}
         />
       </View>
     );
@@ -91,7 +95,13 @@ const ItemSearchScreen: React.FC<ItemSearchScreenProps> = ({route}) => {
   const displayCards = () => {
     ///To do: Find a better way for error
     if (error) {
-      return <Text>Error loading data</Text>;
+      console.log(error.stack);
+      return (
+        <Text
+          style={{color: 'blue', alignItems: 'center', alignSelf: 'center'}}>
+          {error.stack}
+        </Text>
+      );
     }
     //find a more efficient solution
     return loading ? loadingSpinner() : itemCards();
